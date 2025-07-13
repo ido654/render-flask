@@ -1,0 +1,16 @@
+    # Virtual environment
+    venv/
+    .env/
+
+    # Byte-compiled / optimized / compiled files
+    __pycache__/
+    *.pyc
+    *.pyd
+    *.pyo
+
+    # Flask specific
+    instance/
+    .flaskenv
+
+    # Editor backup files
+    *~
