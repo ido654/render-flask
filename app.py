@@ -9,7 +9,7 @@ from routes.constraints import constraints_bp
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True, resources={
-    r"/api/*": {"origins": ["http://localhost:3000"]}
+    r"/api/*": {"origins": ["http://localhost:3000" , "https://render-flask-1-96dg.onrender.com"]}
 })
 
 # אתחול בסיס הנתונים
