@@ -1,6 +1,8 @@
 # app.py
 from flask import Flask
 from flask_cors import CORS
+from flask import request
+
 
 from models import init_db
 from routes.users import users_bp
@@ -8,11 +10,13 @@ from routes.shifts import shifts_bp
 from routes.constraints import constraints_bp
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True, resources={
-    r"/api/*": {"origins": ["http://localhost:3000" , "https://daharis-todos-app.netlify.app/*"]}
-})
 
-# אתחול בסיס הנתונים
+CORS(app, supports_credentials=True,
+     origins=["http://localhost:3000" , "daharis-todos-app.netlify.app"],
+     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+     allow_headers=["Content-Type", "Authorization"])
+
+
 init_db()
 
 # רישום מסלולים
