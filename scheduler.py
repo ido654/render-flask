@@ -21,7 +21,7 @@ class ShiftEntry:
             self.score = 0.0
 
 
-def assign_initial_shifts(data: List[ShiftEntry], users_per_shift: int = 2) -> Tuple[Dict[int, List[int]], Dict[int, float], Dict[int, int]]:
+def assign_initial_shifts(data: List[ShiftEntry], users_per_shift: int = 6) -> Tuple[Dict[int, List[int]], Dict[int, float], Dict[int, int]]:
     """Assigns initial shifts based on lowest adjusted score."""
     assignments = defaultdict(list)
     user_shift_counts = defaultdict(int)
