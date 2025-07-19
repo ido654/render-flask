@@ -6,6 +6,7 @@ users_bp = Blueprint('users', __name__)
 
 
 @users_bp.route('/', methods=['GET'])
+@users_bp.route('', methods=['GET'])
 def get_users():
     conn = get_db_connection()
     users = conn.execute('SELECT * FROM users').fetchall()
@@ -13,6 +14,7 @@ def get_users():
     return jsonify([dict(u) for u in users])
 
 @users_bp.route('/', methods=['POST'])
+@users_bp.route('', methods=['POST'])
 def add_user():
     data = request.json
     name = data.get('name')
@@ -25,6 +27,7 @@ def add_user():
     return jsonify({'message': 'User added'}), 201
 
 @users_bp.route('/<int:user_id>', methods=['DELETE'])
+@users_bp.route('/<int:user_id>/', methods=['DELETE'])
 def delete_user(user_id):
     conn = get_db_connection()
     conn.execute('DELETE FROM users WHERE user_id = ?', (user_id,))

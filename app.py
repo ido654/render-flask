@@ -23,7 +23,7 @@ app.register_blueprint(results_bp , url_prefix= '/api/run-schedule')
 
 CORS(app,
      supports_credentials=True,
-     resources={r"/api/*": {"origins": ["http://10.0.0.12:3000" , 'http://localhost:3000']}},
+     resources={r"/api/*": {"origins": ["http://10.0.0.12:3000" , 'http://localhost:3000' , "https://daharis-todos-app.netlify.app"]}},
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
      allow_headers=["Content-Type", "Authorization"])
 
